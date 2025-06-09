@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 20:15:39 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/09 20:55:46 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/09 20:56:32 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,5 @@ class contact{
 		void getTable(int i) const;
 		bool getFullInfo() const;
 };
-
-
 
 #endif
