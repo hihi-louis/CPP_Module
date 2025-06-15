@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 20:15:39 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/12 22:51:41 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/13 20:34:59 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Contact{
 	public:
 		Contact(); /*Default constructor*/
 		Contact (
-				int					id,
+				const int					id,
 				const std::string firstName,
 				const std::string lastName,
 				const std::string nickName,

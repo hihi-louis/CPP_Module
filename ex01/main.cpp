@@ -5,18 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/12 21:57:06 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/12 22:31:49 by tripham          ###   ########.fr       */
+/*   Created: 2025/06/15 15:30:46 by tripham           #+#    #+#             */
+/*   Updated: 2025/06/15 15:58:07 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include "PhoneBook.hpp"
 
-int main (void)
+int	main()
 {
-	displayTableHeader();
-	Contact i(780870, "Alice", "Nguyen cai lone", "Ali", "0123456789", "Scared of frogs");
-	i.displayTableInfo();
-	i.displayFullInfo();
-	return 0;
+	PhoneBook PhoneBook;
+	std::string cmd;
+
+	std::cout << "Welcome to the 80s PhoneBook!" << std::endl;
+	while (true)
+	{
+		std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
+		std::getline(std::cin, cmd);
+
+		if (std::cin.eof())
+		{
+			std::cout << "EOF detected. Exitting" << std::endl;
+			break ;	
+		}
+
+		if (!cmd.compare("ADD")) PhoneBook.add();
+		else if (!cmd.compare("SEARCH")) PhoneBook.search();
+		else if (!cmd.compare("EXIT")) break;
+		else
+			std::cout << "Unknown command. Please try again" << std::endl;
+	}
+	return (0);
 }

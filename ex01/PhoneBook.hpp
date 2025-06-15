@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 22:34:45 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/12 23:06:21 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/13 20:59:15 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ class PhoneBook{
 		int _idCount;
 };
 
-std::string userInput(std::string input);
+std::string userInput(const std::string& prompt);
 #endif
