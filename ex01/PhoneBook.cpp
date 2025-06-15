@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/09 20:27:12 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/15 15:27:30 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/15 16:20:17 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void PhoneBook::add()
 	Contact newUser(_id ,firstName, lastName, nickName, phoneNumber, darkestSecret);
 	_list[_id] = newUser;
 	_id++;
-	_idCount++;
+	if (_idCount < 8)
+		_idCount++;
 }
 
 void PhoneBook::search() const
@@ -69,7 +70,7 @@ void PhoneBook::search() const
 		_list[i].displayTableInfo();
 	id_request = userInput("Search Person At Index: ");
 	index = id_request.at(0) - '0';
-	if (id_request.length() != 1 || index > 7 || index < 0 || index + 1 > _idCount)
+	if (id_request.length() != 1 || index > 7 || index < 0 || index >= _idCount)
 	{
 		std::cout << "Wrong Input" << std::endl;
 		return ;
