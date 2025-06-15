@@ -6,14 +6,14 @@
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/15 15:07:42 by tripham           #+#    #+#              #
-#    Updated: 2025/06/15 15:55:50 by tripham          ###   ########.fr        #
+#    Updated: 2025/06/15 16:00:46 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 	:= phonebook
 FLAGS 	:= -Wall -Wextra -Werror -std=c++20
 SRCS		:=	Contact.cpp		\
-				Phonebook.cpp	\
+				PhoneBook.cpp	\
 				main.cpp
 OBJ		:=	$(SRCS:.cpp=.o)
 RM 		:=	rm -rf
