@@ -6,7 +6,7 @@
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/16 18:20:14 by tripham           #+#    #+#              #
-#    Updated: 2025/06/16 18:26:14 by tripham          ###   ########.fr        #
+#    Updated: 2025/06/16 18:37:53 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,19 +16,25 @@ FLAGS	:= -Wall -Wextra -Werror -std=c++98
 SRCS	:= tests.cpp Account.cpp
 OBJ		:= $(SRCS:.cpp=.o)
 
-all : $(NAME)
+GREEN	:= \033[0;32m
+BLUE	:= \033[0;34m
+RESET	:= \033[0m
 
-$(NAME) : $(OBJ)
-		$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+all : $(NAME)
 	
 %.o : %.cpp
-		$(CC) $(FLAGS) -c $< -o $@
+		@$(CC) $(FLAGS) -c $< -o $@
 
+$(NAME) : $(OBJ)
+		@echo "$(GREEN)Success$(RESET)"
+		@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+		
 clean:
-		rm -rf $(OBJ)
+		@rm -rf $(OBJ)
 
 fclean: clean
-		rm -rf $(NAME)
+		@echo "$(BLUE)Cleanning Success$(RESET)"
+		@rm -rf $(NAME)
 
 re: fclean all
 
