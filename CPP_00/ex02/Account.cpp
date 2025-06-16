@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 17:42:16 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/16 18:10:52 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/16 18:27:57 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void Account::displayStatus( void ) const
 {
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex;
-	std::cout << ";amout:" << checkAmount();
+	std::cout << ";amount:" << checkAmount();
 	std::cout << ";deposits:" << _nbDeposits;
 	std::cout << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
