@@ -6,114 +6,139 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 17:42:16 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/15 17:51:58 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/16 18:10:52 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
 #include <ctime>
-#include <iomanip>
 
-// Khởi tạo biến static
+/*initialize static variable*/
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-// In timestamp [YYYYMMDD_HHMMSS]
-void Account::_displayTimestamp(void) {
-    std::time_t now = std::time(NULL);
-    std::tm *ltm = std::localtime(&now);
-    std::cout << "[" << (1900 + ltm->tm_year)
-              << std::setw(2) << std::setfill('0') << (ltm->tm_mon + 1)
-              << std::setw(2) << std::setfill('0') << ltm->tm_mday << "_"
-              << std::setw(2) << std::setfill('0') << ltm->tm_hour
-              << std::setw(2) << std::setfill('0') << ltm->tm_min
-              << std::setw(2) << std::setfill('0') << ltm->tm_sec << "] ";
+/*Constructor
+initialization List for initialize an account with an initialize deposits*/
+Account::Account(int initial_deposit)
+:
+	_accountIndex(_nbAccounts),
+	_amount(initial_deposit),
+	_nbDeposits(0),
+	_nbWithdrawals(0)
+{	_displayTimestamp();
+	std::cout << "index:" << _accountIndex;
+	std::cout << ";amount:" << initial_deposit;
+	std::cout << ";created" << std::endl;
+	_nbAccounts++;
+	_totalAmount += initial_deposit;
 }
 
-// Constructor
-Account::Account(int initial_deposit) {
-    this->_accountIndex = _nbAccounts;
-    this->_amount = initial_deposit;
-    this->_nbDeposits = 0;
-    this->_nbWithdrawals = 0;
-
-    _nbAccounts++;
-    _totalAmount += initial_deposit;
-
-    _displayTimestamp();
-    std::cout << "index:" << _accountIndex
-              << ";amount:" << _amount
-              << ";created" << std::endl;
+Account::~Account(void)
+{
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex;
+	std::cout << ";amount:" << _amount;
+	std::cout << ";closed" << std::endl;
 }
 
-// Destructor
-Account::~Account(void) {
-    _displayTimestamp();
-    std::cout << "index:" << _accountIndex
-              << ";amount:" << _amount
-              << ";closed" << std::endl;
+/*std::strftime(char* buffer, std::size_t maxSize, 
+	const char* format, const std::tm* timeStruct);
+	std::tm* localtime(const time_t* timer); => that's why have to use &atTheMoment;
+	Using new to malloc, and delete[] to free
+*/
+void	Account::_displayTimestamp( void )
+{
+	char *buffer = new char[20];
+	std::time_t atTheMoment = std::time(0);
+	std::tm* timeinfo = std::localtime(&atTheMoment);
+	std::strftime(buffer, 20, "%Y%m%d_%H%M%S", timeinfo);
+	std::cout << "[" << buffer << "] ";
+	delete[] buffer;
 }
 
-// Deposit
-void Account::makeDeposit(int deposit) {
-    _displayTimestamp();
-    std::cout << "index:" << _accountIndex
-              << ";p_amount:" << _amount;
-
-    _amount += deposit;
-    _nbDeposits++;
-    _totalAmount += deposit;
-    _totalNbDeposits++;
-
-    std::cout << ";deposit:" << deposit
-              << ";amount:" << _amount
-              << ";nb_deposits:" << _nbDeposits << std::endl;
+int Account::getNbAccounts( void ) {return _nbAccounts;}
+int Account::getTotalAmount( void ) {return _totalAmount;}
+int Account::getNbDeposits( void ) {return _totalNbDeposits;}
+int Account::getNbWithdrawals( void ) {return _totalNbWithdrawals;}
+void Account::displayAccountsInfos( void ) {
+	_displayTimestamp();
+	std::cout << "accounts:" << getNbAccounts();
+	std::cout  << ";total:" << getTotalAmount();
+	std::cout << ";deposits:" << getNbDeposits();
+	std::cout << ";withdrawals:" << getNbWithdrawals() << std::endl;
 }
 
-// Withdrawal
-bool Account::makeWithdrawal(int withdrawal) {
-    _displayTimestamp();
-    std::cout << "index:" << _accountIndex
-              << ";p_amount:" << _amount;
-
-    if (_amount < withdrawal) {
-        std::cout << ";withdrawal:refused" << std::endl;
-        return false;
-    }
-
-    _amount -= withdrawal;
-    _nbWithdrawals++;
-    _totalAmount -= withdrawal;
-    _totalNbWithdrawals++;
-
-    std::cout << ";withdrawal:" << withdrawal
-              << ";amount:" << _amount
-              << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
-    return true;
+/*Purpose of makeDeposit function:
+Call _displayTimestamp()
+Print index, p_amount (money before deposit)
+Add deposit to _amount
+Update _nbDeposits and _totalNbDeposits
+Print result log: deposit, amount, nb_deposits*/
+void	Account::makeDeposit( int deposit )
+{
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex;
+	std::cout << ";p_amount:" << _amount;
+	_amount += deposit;
+	_nbDeposits++;
+	_totalAmount += deposit;
+	_totalNbDeposits++;
+	std::cout << ";deposit:" << deposit;
+	std::cout << ";amount:" << _amount;
+	std::cout << ";nb_deposits:" << _nbDeposits << std::endl;
 }
 
-// Check balance
-int Account::checkAmount(void) const {
-    return _amount;
+int Account::checkAmount( void ) const {return _amount;}
+
+/*Function Goal:
+If funds are sufficient:
+	Subtract withdrawal from _amount
+	Update _nbWithdrawals, _totalAmount, _totalNbWithdrawals
+	Print detailed log
+If funds are insufficient:
+	Print refused log
+	Do not change data*/
+bool Account::makeWithdrawal( int withdrawal )
+{
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex;
+	std::cout << ";p_amount:" << _amount;
+	if (withdrawal <= checkAmount())
+	{
+		_amount -= withdrawal;
+		_nbWithdrawals++;
+		_totalAmount -= withdrawal;
+		_totalNbWithdrawals++;
+
+		std::cout << ";withdrawal:" << withdrawal;
+		std::cout << ";amount:" << _amount;
+		std::cout << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
+		return true;
+	}
+	else
+	{
+		std::cout << ";withdrawal:refused" << std::endl;
+		return false;
+	}
+}
+/*Function Purpose:
+Print information of a specific account:
+index – account number
+amount – current balance
+deposits – number of deposits
+withdrawals – number of withdrawals
+With timestamp at the beginning of the line
+Do not change data → use const*/
+void Account::displayStatus( void ) const
+{
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex;
+	std::cout << ";amout:" << checkAmount();
+	std::cout << ";deposits:" << _nbDeposits;
+	std::cout << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
 
-// Display account status
-void Account::displayStatus(void) const {
-    _displayTimestamp();
-    std::cout << "index:" << _accountIndex
-              << ";amount:" << _amount
-              << ";deposits:" << _nbDeposits
-              << ";withdrawals:" << _nbWithdrawals << std::endl;
-}
-
-// Display all accounts info
-void Account::displayAccountsInfos(void) {
-    _displayTimestamp();
-    std::cout << "accounts:" << _nbAccounts
-              << ";total:" << _totalAmount
-              << ";deposits:" << _totalNbDeposits
-              << ";withdrawals:" << _totalNbWithdrawals << std::endl;
-}
+Account::Account(void) {}
