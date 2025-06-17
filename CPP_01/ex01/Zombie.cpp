@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 18:42:55 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/17 19:06:36 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/17 19:35:33 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 
 namespace ZombieLouis {
+	
 	Zombie::Zombie() {}
 	
 	Zombie::~Zombie() {
@@ -23,6 +24,7 @@ namespace ZombieLouis {
 	void Zombie::announce (void) {
 		std::cout << _name << ":  BraiiiiiiinnnzzzZ..." << std::endl;
 	}
+	
 	void Zombie::setName(std::string name) {
 		_name = name;
 	}

@@ -6,11 +6,12 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 19:07:07 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/17 19:34:22 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/17 19:36:18 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
 using namespace ZombieLouis;
 
 void testHord(int N, const std::string& name)
@@ -27,6 +28,7 @@ void testHord(int N, const std::string& name)
 			std::cout << "[" << i + 1 << "] ", horde[i].announce();
 	delete[] horde;
 }
+
 int main()
 {
 	testHord(5, "Positive num");
