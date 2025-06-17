@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 18:18:53 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/17 19:35:52 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/17 19:57:35 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ namespace ZombieLouis {
 			std::cerr << "Memory allocation failed for zombie horde." << std::endl;
 			return NULL;
 		}
-		
+
+		if (!zHorde)
+			return NULL;
+
 		for (int i = 0; i < N; ++i)
 			zHorde[i].setName(name);
 		

@@ -6,12 +6,11 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 16:56:11 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/17 18:57:52 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/17 19:39:08 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIELOUIS_HPP
- #define ZOMBIELOUIS_HPP
+#pragma once
 
  #include <iostream>
  #include <string>
@@ -32,4 +31,3 @@ namespace ZombieLouis {
 	};
 	Zombie* zombieHorde( int N, std::string name );
 }
-#endif
