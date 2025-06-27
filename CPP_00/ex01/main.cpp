@@ -6,15 +6,23 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 15:30:46 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/15 16:27:24 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/27 17:34:59 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
+#include <csignal>
+
+static void handleSigint(int signum)
+{
+	std::cout << "\n[!] Caught signal " << signum << " (Ctrl+C). Exiting gracefully..." << std::endl;
+	std::exit(signum);
+}
 
 int	main()
 {
+	signal(SIGINT, handleSigint);
 	PhoneBook PhoneBook;
 	std::string cmd;
 
@@ -23,7 +31,6 @@ int	main()
 	{
 		std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
 		std::getline(std::cin, cmd);
-
 		if (std::cin.eof())
 		{
 			std::cout << "EOF detected. Exitting" << std::endl;
