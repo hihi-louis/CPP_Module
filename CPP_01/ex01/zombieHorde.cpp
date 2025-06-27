@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 18:18:53 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/27 18:31:27 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/27 20:08:32 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 	Zombie* zombieHorde( int N, std::string name )
 	{
-		if (N <= 0 )//|| N > 10000)
+		if (N <= 0 || N > 10000)
 		{
 			std::cerr << "Invalid number of zombie." << std::endl;
 			return (NULL);
