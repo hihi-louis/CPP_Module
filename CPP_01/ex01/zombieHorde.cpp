@@ -6,13 +6,12 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 18:18:53 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/17 19:57:35 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/27 18:16:13 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-namespace ZombieLouis {
 	Zombie* zombieHorde( int N, std::string name )
 	{
 		if (N <= 0 || N > 10000)
@@ -39,4 +38,3 @@ namespace ZombieLouis {
 		
 		return zHorde;
 	}
-}

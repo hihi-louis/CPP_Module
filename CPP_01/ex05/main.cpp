@@ -5,33 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/17 19:07:07 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/27 18:16:26 by tripham          ###   ########.fr       */
+/*   Created: 2025/06/27 16:58:12 by tripham           #+#    #+#             */
+/*   Updated: 2025/06/27 17:15:47 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-void testHord(int N, const std::string& name)
+int main (void)
 {
-	std::cout << "Test zombie: " << N << " - " << name << std::endl;
-
-	Zombie* horde = zombieHorde(N, name);
-	if (!horde)
-	{
-		std::cerr << "Failed to create horde." << std::endl;
-		return;
-	}
-	for (int i = 0; i < N; ++i)
-			std::cout << "[" << i + 1 << "] ", horde[i].announce();
-	delete[] horde;
-}
-
-int main()
-{
-	testHord(5, "Positive num");
-	testHord(0, "zero");
-	testHord(-3, "Negative num");
-	testHord(10, "Too Many");
+	Harl harl;
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+	harl.complain("INVALID");
 	return 0;
 }
