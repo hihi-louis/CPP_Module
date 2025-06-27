@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 19:07:07 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/27 18:16:26 by tripham          ###   ########.fr       */
+/*   Updated: 2025/06/27 18:25:10 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ int main()
 	testHord(5, "Positive num");
 	testHord(0, "zero");
 	testHord(-3, "Negative num");
-	testHord(10, "Too Many");
+	testHord(100000, "Too Many");
 	return 0;
 }
