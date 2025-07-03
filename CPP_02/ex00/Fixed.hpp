@@ -6,13 +6,13 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 16:19:03 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/03 18:27:00 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/03 19:41:04 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
-#define LOG(msg) std::cout << "\033[38;5;218m" << msg << "\033[0m" << std::endl
+#define LOG(message) std::cout << "\033[38;5;218m" << message << "\033[0m" << std::endl
 
 class Fixed {
 	public:
