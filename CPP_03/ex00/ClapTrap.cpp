@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 13:56:05 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/04 14:14:20 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/04 16:33:02 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,30 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other){
 }
 
 void ClapTrap::attack(const std::string& target) {
-    if (_hitPoint <= 0 || _energyPoint <= 0)
+    if (this->_hitPoint <= 0 || this->_energyPoint <= 0)
     {
-        std::cout << "ClapTrap " << _name << " has no energy or is already dead and cannot attack." << std::endl;
+        std::cout << "ClapTrap " << this->_name << " has no energy or is already dead and cannot attack." << std::endl;
         return ;
     }
-    std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
-    _energyPoint--;
+    std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+    this->_energyPoint--;
 };
 
 void ClapTrap::takeDamage(unsigned int amount){
-    if (_)
+    if (this->_hitPoint == 0)
+	{
+		std::cout << "ClapTrap " << this->_name << " is already destroyed!" << std::endl;
+        return;
+	}
+
+	if (amount >= this->_hitPoint)
+		this->_hitPoint = 0;
+	else
+		this->_hitPoint -= amount;
+	
+	std::cout << "ClapTrap " << this->_name << " takes " << amount << " damage! "
+         << "Remaining HP: " << this->_hitPoint << std::endl;
+	
+	
 };
 void ClapTrap::beRepaired(unsigned int amount){};
