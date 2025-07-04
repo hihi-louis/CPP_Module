@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 19:40:08 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/04 01:05:16 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/04 18:06:15 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int Fixed::getRawBits( void ) const {
 void Fixed::setRawBits( int const raw ){
 	this->_value = raw;
 }
-
 
 std::ostream& operator<<(std::ostream &os, Fixed const& obj)
 {
