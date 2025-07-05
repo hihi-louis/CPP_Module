@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 13:56:05 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/04 18:30:11 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/05 13:16:51 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ ClapTrap::~ClapTrap()
 ClapTrap::ClapTrap(std::string name): _name(name.empty() ? "Undefined ClapTrap" : name),
                                       _hitPoint(10),
                                       _energyPoint(10),
-                                      _attackDamage(0) 
+                                      _attackDamage(0)
 {
-	LOG("ClapTrap: Default constructor called");
+	LOG("ClapTrap: Parameterized constructor called");
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other){
@@ -81,17 +81,17 @@ void ClapTrap::beRepaired(unsigned int amount){
 		std::cout << "ClapTrap " << this->_name << " is already destroyed!" << std::endl;
         return;
 	}
-	else if (this->_energyPoint <= 0)
+	if (this->_energyPoint <= 0)
 	{
 		std::cout << "ClapTrap " << this->_name << " has no energy left to repair." << std::endl;
         return;
 	}
-	else
-	{
-		std::cout << this->_name << "got repaired" << std::endl;
-		if (amount + this->_hitPoint >= 10)
-			this->_hitPoint = 10;
-		this->_energyPoint--;
-	}
-	
+	this->_hitPoint = this->_hitPoint + amount;
+	if (amount + this->_hitPoint > 10)
+		this->_hitPoint = 10;
+	this->_energyPoint--;
+	std::cout << this->_name << " got repaired" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " got repaired by " << amount 
+	          << " points! Current HP: " << this->_hitPoint << ", Energy: " 
+	          << this->_energyPoint << std::endl;
 }
