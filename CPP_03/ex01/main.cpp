@@ -6,11 +6,12 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:28:08 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/07 01:19:44 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/07 01:29:12 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include <new>
 
 int main()
 {
@@ -48,9 +49,9 @@ int main()
 	std::cout << "\n--- POLYMORPHIC TEST ---" << std::endl;
 	try {
 		ClapTrap* ptr = new ScavTrap("Polymorphic Ariana");
-		delete ptr;
 		ptr->attack("target from pointer");
-	} catch (const std::bad_alloc& error)
+		delete ptr;
+	} catch (const std::bad_alloc& e)
 	{
 		std::cerr << "Allocation failed: " << e.what() << std::endl;
 	} 
