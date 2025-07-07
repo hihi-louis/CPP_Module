@@ -6,13 +6,13 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:37:01 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/07 17:12:10 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/08 02:49:36 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(): Animal("Undefined type"){
+Cat::Cat(): Animal("Cat"){
 	LOG("Cat: Default constructor called");
 }
 

@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 00:32:00 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 02:26:31 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/08 02:51:16 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ int main()
 	Dog cogi(bulldog);
 	WrongAnimal *ahaha = new WrongCat();
 
+	std::cout << cogi.getType() << "" << std::endl;
+	std::cout << ahaha->getType() << "" << std::endl;
+	
 	omenal1->makeSound();
 	bulldog.makeSound();
 	cogi.makeSound();

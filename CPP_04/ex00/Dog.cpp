@@ -6,13 +6,13 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:12:34 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/07 17:13:41 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/08 02:49:43 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(): Animal("Undefined type"){
+Dog::Dog(): Animal("Dog"){
 	LOG("Dog: Default constructor called");
 }
 
