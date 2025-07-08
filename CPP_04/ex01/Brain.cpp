@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 03:29:27 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 03:34:32 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/08 15:52:00 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,15 @@ Brain& Brain::operator=(const Brain &other) {
 	return *this;
 }
 
+void Brain::setIdea(int index, const std::string& idea){
+	if (index >= 0 && index < 100)
+		this->_ideas[index] = idea;
+}
+
+std::string Brain::getIdea(int index) const {
+	if (index >= 0 && index < 100)
+		return this->_ideas[index];
+	std::cerr << "Invalid idea index: " << index << std::endl;
+    return "";
+}
 

@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 02:58:44 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 03:30:32 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/08 15:45:03 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ class Brain{
 		~Brain();
 		Brain(const Brain& other);
 		Brain& operator=(const Brain &other);
+
+		void setIdea(int index, const std::string& idea);
+		std::string getIdea(int index) const;
 	private:
 		std::string _ideas[100];
 };

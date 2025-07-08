@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:12:34 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 04:54:26 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/08 17:04:30 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,8 @@ Dog& Dog::operator=(const Dog& other)
 void Dog::makeSound() const 
 {
 	std::cout << "Woof Woof" << std::endl;
+}
+
+Brain* Dog::getBrain() const{
+	return _brain;
 }

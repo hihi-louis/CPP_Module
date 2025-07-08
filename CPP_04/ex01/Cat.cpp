@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:37:01 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 04:52:42 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/08 16:40:43 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,8 @@ Cat& Cat::operator=(const Cat& other)
 void Cat::makeSound() const 
 {
 	std::cout << "Meow Meow" << std::endl;
+}
+
+Brain* Cat::getBrain() const{
+	return _brain;
 }

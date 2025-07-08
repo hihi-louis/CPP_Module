@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:53:38 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 04:53:35 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/08 16:29:37 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class Dog : public Animal {
 		~Dog();
 
 	void makeSound() const override;
-	
+	Brain* getBrain() const;
+
 	private:
 		Brain *_brain;
 };
