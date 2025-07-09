@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 15:41:09 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/09 04:46:45 by tripham          ###   ########.fr       */
+/*   Created: 2025/07/08 20:57:14 by tripham           #+#    #+#             */
+/*   Updated: 2025/07/09 04:35:07 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#pragma once
 
-HumanA::HumanA(const std::string &name, Weapon &weapon)
-	:  _weapon(weapon), _name(name.empty() ? "Undefined" : name){}
-
-HumanA::~HumanA(){}
-
-void HumanA::attack() {
-	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
-}
-
+#include <iostream>
+#include "AMateria.hpp"
+class AMateria;
+class ICharacter
+{
+	public:
+		virtual ~ICharacter() {}
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
+};

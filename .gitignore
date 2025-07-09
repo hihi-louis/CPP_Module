@@ -28,7 +28,6 @@ out/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
-Makefile
 
 # Ignore Valgrind logs
 valgrind*.log

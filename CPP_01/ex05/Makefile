@@ -6,13 +6,13 @@
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/27 17:08:29 by tripham           #+#    #+#              #
-#    Updated: 2025/06/27 17:09:19 by tripham          ###   ########.fr        #
+#    Updated: 2025/07/09 04:31:35 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:=	Harl
 CC		:=	c++
-FLAGs	:=	-Wall -Wextra -Werror -std=c++20
+FLAGS	:=	-Wall -Wextra -Werror -std=c++20
 SRC		:=	main.cpp Harl.cpp
 OBJ		:= $(SRC:.cpp=.o)
 

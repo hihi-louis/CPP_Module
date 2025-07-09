@@ -6,13 +6,13 @@
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/27 02:05:16 by tripham           #+#    #+#              #
-#    Updated: 2025/06/27 02:05:44 by tripham          ###   ########.fr        #
+#    Updated: 2025/07/09 04:31:49 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:=	Replace
 CC		:=	c++
-FLAGs	:=	-Wall -Wextra -Werror -std=c++98
+FLAGS	:=	-Wall -Wextra -Werror -std=c++98
 SRC		:=	main.cpp ex04.cpp
 OBJ		:= $(SRC:.cpp=.o)
 

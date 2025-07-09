@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 16:58:12 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/27 17:57:15 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/09 04:50:11 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,20 @@ int main (int ac, char **av)
 
 	switch (index)
 	{
-	case 0:
-		harl.complain("DEBUG");
-	case 1:
-		harl.complain("INFO");
-	case 2:
-		harl.complain("WARNING");
-	case 3:
-		harl.complain("ERROR");
-		break;
-	default:
-		std::cout << "Probably complaining about insignificant problems." << std::endl;
+		case 0:
+			harl.complain("DEBUG");
+			[[fallthrough]];
+		case 1:
+			harl.complain("INFO");
+			[[fallthrough]];
+		case 2:
+			harl.complain("WARNING");
+			[[fallthrough]];
+		case 3:
+			harl.complain("ERROR");
+			break;
+		default:
+			std::cout << "Probably complaining about insignificant problems." << std::endl;
 	}
 	return 0;
 }

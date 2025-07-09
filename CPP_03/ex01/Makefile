@@ -6,13 +6,13 @@
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/05 14:32:51 by tripham           #+#    #+#              #
-#    Updated: 2025/07/07 00:52:57 by tripham          ###   ########.fr        #
+#    Updated: 2025/07/09 04:30:36 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:=	ScavTrap
 CC		:=	c++
-FLAGs	:=	-Wall -Wextra -Werror -std=c++20
+FLAGS	:=	-Wall -Wextra -Werror -std=c++20
 SRC		:=	main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJ		:= $(SRC:.cpp=.o)
 

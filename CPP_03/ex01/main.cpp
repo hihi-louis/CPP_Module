@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:28:08 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/07 01:29:12 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/09 04:39:40 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ int main()
     player2.beRepaired(500); // Should fail (destroyed)
 
 	std::cout << "\n--- ENERGY DEPLETION TEST ---" << std::endl;
-    for (int i = 0; i < 10; ++i)
-        player1.attack("target");
-	
+    for(int i = 0; i < 10; ++i)
+    {
+	    player1.attack("target");
+	}
 	std::cout << "\n--- GuardGate TEST ---" << std::endl;
 	player1.guardGate();
 	player2.guardGate();

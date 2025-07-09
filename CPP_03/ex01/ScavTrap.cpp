@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 00:00:10 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/07 01:27:55 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/09 04:40:10 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ScavTrap::ScavTrap(const std::string& name): ClapTrap(name.empty() ? "Undefined"
 	LOG("ScavTrap: Parameterized constructor called");
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other){
+ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other){
 	LOG("ScavTrap: Copy constructor called");
 	*this = other;
 }

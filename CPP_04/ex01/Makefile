@@ -6,13 +6,13 @@
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/08 00:29:01 by tripham           #+#    #+#              #
-#    Updated: 2025/07/08 17:03:03 by tripham          ###   ########.fr        #
+#    Updated: 2025/07/09 04:30:16 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:=	AnimalBrain
 CC		:=	c++
-FLAGs	:=	-Wall -Wextra -Werror -std=c++20
+FLAGS	:=	-Wall -Wextra -Werror -std=c++20
 SRC		:=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJ		:= $(SRC:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 01:51:21 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 02:50:53 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/09 04:38:21 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ WrongCat::WrongCat(std::string type): WrongAnimal(type){
 	LOG("WrongCat: Parameterized constructor called");
 }
 
-WrongCat::WrongCat(const WrongCat& other)
+WrongCat::WrongCat(const WrongCat& other): WrongAnimal(other)
 {
 	LOG("WrongCat: Copy constructor called");
 	*this = other;

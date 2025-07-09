@@ -6,13 +6,13 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 04:16:23 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/07 04:52:28 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/09 04:42:33 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(): ClapTrap(), FragTrap(), ScavTrap(){
+DiamondTrap::DiamondTrap(): ClapTrap(), ScavTrap(), FragTrap() {
 	_hitPoint = 100;
     _energyPoint = 50;
     _attackDamage = 30;

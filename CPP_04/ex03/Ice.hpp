@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 15:41:09 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/09 04:46:45 by tripham          ###   ########.fr       */
+/*   Created: 2025/07/08 23:28:36 by tripham           #+#    #+#             */
+/*   Updated: 2025/07/08 23:31:37 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#pragma once
 
-HumanA::HumanA(const std::string &name, Weapon &weapon)
-	:  _weapon(weapon), _name(name.empty() ? "Undefined" : name){}
+#include "AMateria.hpp"
 
-HumanA::~HumanA(){}
+class Ice: public AMateria{
+	public:
+		Ice();
+		~Ice();
+		Ice(const Ice& other);
+		Ice& operator=(const Ice& other);
 
-void HumanA::attack() {
-	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
-}
-
+		AMateria* clone() const override;
+		void use(ICharacter& target) override;
+};

@@ -6,11 +6,13 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 01:54:50 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/27 02:33:35 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/09 04:47:38 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ex04.hpp"
+#include <cstdlib>
+
 
 int main (int ac, char **av)
 {

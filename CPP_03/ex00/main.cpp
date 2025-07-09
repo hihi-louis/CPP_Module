@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:28:08 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/05 14:32:19 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/09 04:40:30 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main()
 
 	std::cout << "\n--- ENERGY DEPLETION TEST ---" << std::endl;
     for (int i = 0; i < 11; ++i)
-        player1.attack("target");
+    {    player1.attack("target");}
 	
 	std::cout << "\n--- COPY TEST ---" << std::endl;
     ClapTrap player3(player1);

@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 15:41:09 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/09 04:46:45 by tripham          ###   ########.fr       */
+/*   Created: 2025/07/09 03:54:12 by tripham           #+#    #+#             */
+/*   Updated: 2025/07/09 03:56:21 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#pragma once
 
-HumanA::HumanA(const std::string &name, Weapon &weapon)
-	:  _weapon(weapon), _name(name.empty() ? "Undefined" : name){}
+#include "IMateriaSource.hpp"
+#include "AMateria.hpp"
 
-HumanA::~HumanA(){}
+class MateriaSource : public IMateriaSource {
+	public:
+		MateriaSource();
+		~MateriaSource();
+		MateriaSource(const MateriaSource& other);
+		MateriaSource& operator=(const MateriaSource& other);
 
-void HumanA::attack() {
-	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
-}
+		void learnMateria(AMateria* m) override;
+		AMateria* createMateria(std::string const & type) override;
 
+	private:
+		AMateria* _templates[4];
+};

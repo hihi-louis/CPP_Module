@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 15:41:09 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/09 04:46:45 by tripham          ###   ########.fr       */
+/*   Created: 2025/07/08 23:32:04 by tripham           #+#    #+#             */
+/*   Updated: 2025/07/09 00:00:28 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#pragma once
 
-HumanA::HumanA(const std::string &name, Weapon &weapon)
-	:  _weapon(weapon), _name(name.empty() ? "Undefined" : name){}
+#include "AMateria.hpp"
 
-HumanA::~HumanA(){}
+class Cure: public AMateria{
+	public:
+		Cure();
+		~Cure();
+		Cure(const Cure& other);
+		Cure& operator=(const Cure& other);
 
-void HumanA::attack() {
-	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
-}
-
+		AMateria* clone() const override;
+		void use(ICharacter& target) override;
+};

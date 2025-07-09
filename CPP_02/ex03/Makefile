@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/03 20:47:46 by tripham           #+#    #+#              #
-#    Updated: 2025/07/09 04:30:57 by tripham          ###   ########.fr        #
+#    Created: 2025/07/04 04:29:58 by tripham           #+#    #+#              #
+#    Updated: 2025/07/09 04:30:47 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:=	Fixed
+NAME	:=	BSP
 CC		:=	c++
 FLAGS	:=	-Wall -Wextra -Werror -std=c++20
-SRC		:=	main.cpp Fixed.cpp
+SRC		:=	main.cpp Fixed.cpp bsp.cpp Point.cpp
 OBJ		:= $(SRC:.cpp=.o)
 
 GREEN	:= \033[0;32m

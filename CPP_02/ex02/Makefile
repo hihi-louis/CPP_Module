@@ -6,13 +6,13 @@
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/03 20:47:46 by tripham           #+#    #+#              #
-#    Updated: 2025/07/04 02:49:52 by tripham          ###   ########.fr        #
+#    Updated: 2025/07/09 04:30:52 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:=	Fixed
 CC		:=	c++
-FLAGs	:=	-Wall -Wextra -Werror -std=c++20
+FLAGS	:=	-Wall -Wextra -Werror -std=c++20
 SRC		:=	main.cpp Fixed.cpp
 OBJ		:= $(SRC:.cpp=.o)
 
