@@ -6,14 +6,14 @@
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/10 10:27:15 by tripham           #+#    #+#              #
-#    Updated: 2025/07/10 10:27:37 by tripham          ###   ########.fr        #
+#    Updated: 2025/07/11 02:57:07 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:=	Exception
+NAME	:=	SignForm
 CC		:=	c++
 FLAGS	:=	-Wall -Wextra -Werror -std=c++20
-SRC		:=	main.cpp Bureaucrat.cpp
+SRC		:=	main.cpp Bureaucrat.cpp Form.cpp
 OBJ		:= $(SRC:.cpp=.o)
 
 GREEN	:= \033[0;32m

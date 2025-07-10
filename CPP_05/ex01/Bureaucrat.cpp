@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 15:51:23 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/10 10:39:58 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/11 02:45:52 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,23 @@ const std::string&	Bureaucrat::getName(void) const{
 }
 int		Bureaucrat::getGrade(void) const{
 	return this->_grade;
+}
+
+void Bureaucrat::signForm(Form& form)
+{
+	//using try-catch, because Form::beSigned(const Bureaucrat& b)
+	// can throw an exception if Bureaucrat is too low level to sign forms
+	try{
+		form.beSigned(*this);
+		//std::cout << this->_name << " signed " << form.getName() << std::endl;
+		SUCCESS(this->_name + " signed " + form.getName());
+	}
+	catch (std::exception &e)
+	{
+		// std::cout << this->_name << " couldn't sign " << form.getName()
+		// << " because " << e.what() << std::endl;
+		EXCEPTION(this->_name + " couldn't sign " + form.getName() + " because " + e.what());
+	}
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& src)
