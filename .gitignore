@@ -15,6 +15,7 @@ out/
 *.out
 *.dSYM/
 *.log
+*.dist
 
 # Ignore MacOS system files
 .DS_Store
