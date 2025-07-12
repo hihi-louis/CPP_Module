@@ -6,14 +6,14 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 13:00:37 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/11 14:54:12 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 15:35:29 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 AForm::AForm(std::string name, int gradeTosign, int gradeToExecute)
-	: _name(name), _gradeToSign(gradeTosign), _gradeToExecute(gradeToExecute){
+	: _name(name), _isSigned(false), _gradeToSign(gradeTosign), _gradeToExecute(gradeToExecute){
 		if (this->_gradeToSign < 1 || this->_gradeToExecute < 1)
 			throw GradeTooHighException();
 		if (this->_gradeToSign > 150 || this->_gradeToExecute > 150)

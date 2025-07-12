@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 03:20:31 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/11 14:52:24 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/11 18:13:06 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,6 @@ class AForm{
 		};	
 
 		class NotSignedException : public std::exception {
-			const char* what() const throw() override;
-		};
-		
-		class NotSignedException : public std::exception {
-		public:
 			const char* what() const throw() override;
 		};
 		

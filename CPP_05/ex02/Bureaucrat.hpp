@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:55:51 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/11 02:44:26 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 13:36:37 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <iostream>
 #include <new>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 # define RESET		"\033[0m"
 # define RED		"\033[31m"
@@ -27,8 +27,8 @@
 
 # define INFO(msg)		std::cout << CYAN << msg << RESET << std::endl
 # define SUCCESS(msg)	std::cout << GREEN << msg << RESET << std::endl
-# define ERROR_MSG(msg)	std::cerr << RED << msg << RESET << std::endl
-# define EXCEPTION(msg)	std::cerr << YELLOW << msg << RESET << std::endl
+# define ERROR_MSG(msg)	std::cout << RED << msg << RESET << std::endl
+# define EXCEPTION(msg)	std::cout << YELLOW << msg << RESET << std::endl
 
 class Form;
 class Bureaucrat{

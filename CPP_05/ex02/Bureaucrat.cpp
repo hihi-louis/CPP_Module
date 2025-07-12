@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 15:51:23 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/11 02:45:52 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/11 18:14:17 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,22 +53,22 @@ int		Bureaucrat::getGrade(void) const{
 	return this->_grade;
 }
 
-void Bureaucrat::signForm(Form& form)
-{
-	//using try-catch, because Form::beSigned(const Bureaucrat& b)
-	// can throw an exception if Bureaucrat is too low level to sign forms
-	try{
-		form.beSigned(*this);
-		//std::cout << this->_name << " signed " << form.getName() << std::endl;
-		SUCCESS(this->_name + " signed " + form.getName());
-	}
-	catch (std::exception &e)
-	{
-		// std::cout << this->_name << " couldn't sign " << form.getName()
-		// << " because " << e.what() << std::endl;
-		EXCEPTION(this->_name + " couldn't sign " + form.getName() + " because " + e.what());
-	}
-}
+// void Bureaucrat::signForm(AForm& Aform)
+// {
+// 	//using try-catch, because AForm::beSigned(const Bureaucrat& b)
+// 	// can throw an exception if Bureaucrat is too low level to sign Aforms
+// 	try{
+// 		Aform.beSigned(*this);
+// 		//std::cout << this->_name << " signed " << Aform.getName() << std::endl;
+// 		SUCCESS(this->_name + " signed " + Aform.getName());
+// 	}
+// 	catch (std::exception &e)
+// 	{
+// 		// std::cout << this->_name << " couldn't sign " << Aform.getName()
+// 		// << " because " << e.what() << std::endl;
+// 		EXCEPTION(this->_name + " couldn't sign " + Aform.getName() + " because " + e.what());
+// 	}
+// }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& src)
 {

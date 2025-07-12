@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 15:17:51 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/11 15:23:23 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 18:04:09 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,13 @@
 
 class PresidentialPardonForm: public AForm{
 	public:
-		PresidentialPardonForm(const std::string& name, int gradeToSign, int gradeToExecute);
-		~PresidentialPardonForm();
+		PresidentialPardonForm(const std::string& target);
+		virtual ~PresidentialPardonForm();
 		PresidentialPardonForm(const Form& other);
 		PresidentialPardonForm& operator=(const Form& other);
 
-		const std::string& 	getName() const;
-		bool				getIsSigned() const;
-		int					getGradeToSign() const;
-		int					getGradeToExecute() const;
-		void				beSigned(const Bureaucrat& o);
-		void		execute(Bureaucrat const & executor) const override;
-		void		ASCIItoTree();
+		std::string getTarget(void) const;
+		void execute(Bureaucrat const & executor) const override;
 	private:
-		const std::string 	_name;
-		bool				_isSigned;
-		const int			_gradeToSign;
-		const int			_gradeToExecute;		
+		std::string _target;
 };
-
-std::ostream& operator<<(std::ostream& out, PresidentialPardonForm & src);

@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 15:47:45 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/11 16:26:42 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 18:08:33 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
-	if (!getIsSigned())
-		throw AForm::NotSignedException();
-	if (executor.getGrade() > this->getGradeToExecute())
-		throw AForm::GradeTooLowException();
+	
+	AForm::execute(executor); 
+	// if (!getIsSigned())
+	// 	throw AForm::NotSignedException();
+	// if (executor.getGrade() > this->getGradeToExecute())
+	// 	throw AForm::GradeTooLowException(); // it is already checked, do not need to check again
 
 	std::string filename = _target + "_shrubbery";
 	std::ofstream outfile(filename);
@@ -45,7 +47,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 			<< "     #####o###\n"
 			<< "    #o#\\#|#/###\n"
 			<< "     ###\\|/#o#\n"
-			<< "      # }|{  #\n"
-			<< "        }|{\n";
+			<< "      # |||  #\n"
+			<< "        |||\n";
 	outfile.close();
 }
