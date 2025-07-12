@@ -6,14 +6,16 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 15:22:54 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/25 16:28:54 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 13:42:42 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
 
-	HumanB::HumanB(const std::string &name): _name(name.empty() ? "undifined" : name) {}
+	HumanB::HumanB(const std::string &name): _name(name.empty() ? "undifined" : name) {
+		this->_weapon = nullptr;
+	}
 	HumanB::~HumanB() {}
 
 	void HumanB::attack()

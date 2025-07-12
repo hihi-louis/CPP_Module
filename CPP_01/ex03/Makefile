@@ -6,13 +6,13 @@
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/25 16:29:15 by tripham           #+#    #+#              #
-#    Updated: 2025/07/09 04:31:35 by tripham          ###   ########.fr        #
+#    Updated: 2025/07/12 13:47:10 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:=	Weapon
 CC		:=	c++
-FLAGS	:=	-Wall -Wextra -Werror -std=c++98
+FLAGS	:=	-Wall -Wextra -Werror -std=c++20
 SRC		:=	main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 OBJ		:= $(SRC:.cpp=.o)
 

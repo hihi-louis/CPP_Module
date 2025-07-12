@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 17:25:02 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/17 19:52:24 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 13:39:17 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 Zombie* newZombie( std::string name )
 {
-	return new Zombie(name);
+	return new (std::nothrow) Zombie(name);
 }

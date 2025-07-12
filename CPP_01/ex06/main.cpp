@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 16:58:12 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/09 04:50:11 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 13:36:37 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main (int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cerr << "Error: Invalid input." << std::endl;
+		std::cout << "Error: Invalid input." << std::endl;
 		return EXIT_FAILURE;
 	}
 	Harl harl;

@@ -6,13 +6,13 @@
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/17 19:29:05 by tripham           #+#    #+#              #
-#    Updated: 2025/06/17 19:30:37 by tripham          ###   ########.fr        #
+#    Updated: 2025/07/12 13:50:20 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := zombieHorde
 CC		:= c++
-FLAGS	:= -Wall -Wextra -Werror -std=c++98
+FLAGS	:= -Wall -Wextra -Werror -std=c++20
 SRCS	:= main.cpp Zombie.cpp zombieHorde.cpp
 OBJ		:= $(SRCS:.cpp=.o)
 

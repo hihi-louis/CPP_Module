@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 19:07:07 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/27 20:09:29 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 13:36:37 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void testHord(int N, const std::string& name)
 	Zombie* horde = zombieHorde(N, name);
 	if (!horde)
 	{
-		std::cerr << "Failed to create horde." << std::endl;
+		std::cout << "Failed to create horde." << std::endl;
 		return;
 	}
 	for (int i = 0; i < N; ++i)

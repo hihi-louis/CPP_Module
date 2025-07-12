@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 01:54:50 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/09 04:47:38 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 13:36:37 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main (int ac, char **av)
 {
 	if (ac != 4)
 	{
-		std::cerr << "Error: Invalid input." << std::endl;
+		std::cout << "Error: Invalid input." << std::endl;
 		return EXIT_FAILURE;
 	}
 	const std::string inputFile = av[1];
@@ -27,7 +27,7 @@ int main (int ac, char **av)
 	
 	if (s1.empty())
 	{
-		std::cerr << "Error: s1 must not be empty" << std::endl;
+		std::cout << "Error: s1 must not be empty" << std::endl;
 		return EXIT_FAILURE;
 	}
 	replacer rep(inputFile, s1, s2);
@@ -36,7 +36,7 @@ int main (int ac, char **av)
 	{
 		if (result == -1 || result == -2)
 			return EXIT_FAILURE;
-		std::cerr << "Error: Replacement failed." << std::endl;
+		std::cout << "Error: Replacement failed." << std::endl;
 		return EXIT_FAILURE;
 	}
 	std::cout << "Replacement completed. Output file: " << inputFile + ".replace" << std::endl;

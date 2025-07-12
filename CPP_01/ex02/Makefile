@@ -6,13 +6,13 @@
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/20 12:07:44 by tripham           #+#    #+#              #
-#    Updated: 2025/07/09 04:31:35 by tripham          ###   ########.fr        #
+#    Updated: 2025/07/12 13:50:26 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:=	HITHISISBRAIN
 CC		:=	c++
-FLAGS	:=	-Wall -Wextra -Werror -std=c++98
+FLAGS	:=	-Wall -Wextra -Werror -std=c++20
 SRC		:=	main.cpp
 OBJ		:= $(SRC:.cpp=.o)
 

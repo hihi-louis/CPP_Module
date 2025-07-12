@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:18:51 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/27 02:19:04 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 13:36:37 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ int replacer::process()
 	std::ifstream inputFile(_infile.c_str());
 	if (!inputFile.is_open())
 	{
-		std::cerr << "Error: Could not open input file." << std::endl;
+		std::cout << "Error: Could not open input file." << std::endl;
 		return -1;
 	}
 	std::ofstream outputFile((_infile + ".replace").c_str());
 	if (!outputFile.is_open())
 	{
-		std::cerr << "Error: Could not create output file." << std::endl;
+		std::cout << "Error: Could not create output file." << std::endl;
 		inputFile.close();
 		return -2;
 	}

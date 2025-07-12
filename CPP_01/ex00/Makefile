@@ -6,13 +6,13 @@
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/17 18:00:05 by tripham           #+#    #+#              #
-#    Updated: 2025/06/17 18:14:26 by tripham          ###   ########.fr        #
+#    Updated: 2025/07/12 13:50:14 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= TrainToBusan
 CC		:= c++
-FLAGS	:= -Wall -Wextra -Werror -std=c++98
+FLAGS	:= -Wall -Wextra -Werror -std=c++20
 SRCS	:= main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 OBJ		:= $(SRCS:.cpp=.o)
 

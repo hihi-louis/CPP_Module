@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 17:33:33 by tripham           #+#    #+#             */
-/*   Updated: 2025/06/17 19:52:41 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 13:49:19 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int main(){
 	Zombie* zombieOnHeap = newZombie("ZombieOnHeap");
-	if (zombieOnHeap == NULL) {
-		std::cerr << "Failed to create heap allocation zombie." << std::endl;
+	if (zombieOnHeap == nullptr) {
+		std::cout << "Failed to create heap allocation zombie." << std::endl;
 		return 1;
 	}
 	zombieOnHeap->announce();
