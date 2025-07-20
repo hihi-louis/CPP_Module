@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:18:51 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/12 13:36:37 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/20 12:30:43 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,36 @@ std::string replacer::copiedLine(const std::string& line) const
 	return newLine;
 }
 
+// int replacer::process()
+// {
+// 	std::ifstream inputFile(_infile.c_str());
+// 	if (!inputFile.is_open())
+// 	{
+// 		std::cout << "Error: Could not open input file." << std::endl;
+// 		return -1;
+// 	}
+// 	std::ofstream outputFile((_infile + ".replace").c_str());
+// 	if (!outputFile.is_open())
+// 	{
+// 		std::cout << "Error: Could not create output file." << std::endl;
+// 		inputFile.close();
+// 		return -2;
+// 	}
+// 	std::string line;
+// 	while (std::getline(inputFile, line))
+// 	{
+// 		std::string res = copiedLine(line);
+// 		outputFile << res << std::endl;
+// 	}
+// 	if (inputFile.bad())
+// 	{
+// 		std::cout << "Error: I/O error while reading." << std::endl;
+// 	}
+// 	inputFile.close();
+// 	outputFile.close();
+// 	return 0;
+// }
+
 int replacer::process()
 {
 	std::ifstream inputFile(_infile.c_str());
@@ -44,6 +74,7 @@ int replacer::process()
 		std::cout << "Error: Could not open input file." << std::endl;
 		return -1;
 	}
+
 	std::ofstream outputFile((_infile + ".replace").c_str());
 	if (!outputFile.is_open())
 	{
@@ -51,12 +82,41 @@ int replacer::process()
 		inputFile.close();
 		return -2;
 	}
+
 	std::string line;
-	while (std::getline(inputFile, line))
+	while (true)
 	{
+		if (!std::getline(inputFile, line))
+		{
+			if (inputFile.eof())
+				break; // Đọc xong hết file => OK
+			else if (inputFile.fail())
+			{
+				std::cout << "Error: Failed to read a line (possibly malformed input)." << std::endl;
+				inputFile.close();
+				outputFile.close();
+				return -3;
+			}
+			else if (inputFile.bad())
+			{
+				std::cout << "Error: I/O error while reading from file." << std::endl;
+				inputFile.close();
+				outputFile.close();
+				return -4;
+			}
+			else
+			{
+				std::cout << "Error: Unknown error while reading from file." << std::endl;
+				inputFile.close();
+				outputFile.close();
+				return -5;
+			}
+		}
+
 		std::string res = copiedLine(line);
 		outputFile << res << std::endl;
 	}
+
 	inputFile.close();
 	outputFile.close();
 	return 0;
