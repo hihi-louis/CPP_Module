@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 00:32:00 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 02:51:16 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/21 18:56:55 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int main()
 	Dog bulldog;
 	Dog cogi(bulldog);
 	WrongAnimal *ahaha = new WrongCat();
-
+	throw std::runtime_error("test");
+	//try catch for new otherwise it's gonna be segfault
 	std::cout << cogi.getType() << "" << std::endl;
 	std::cout << ahaha->getType() << "" << std::endl;
 	
@@ -42,3 +43,4 @@ int main()
 	clean(omenal1);
 	clean(ahaha);
 }
+
