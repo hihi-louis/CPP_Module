@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 19:40:08 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/04 02:48:24 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 13:36:37 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ Fixed Fixed::operator-(const Fixed& other) const{return (Fixed)(this->toFloat() 
 Fixed Fixed::operator*(const Fixed& other) const{return (Fixed)(this->toFloat() * other.toFloat());}
 Fixed Fixed::operator/(const Fixed& other) const {
 	if (other._value == 0) {
-		std::cerr << "Division by zero\n";
+		std::cout << "Division by zero\n";
 		return Fixed();
 	}
 	return (Fixed)(this->toFloat() / other.toFloat());
