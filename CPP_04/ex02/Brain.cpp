@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 03:29:27 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 15:52:00 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 13:36:37 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void Brain::setIdea(int index, const std::string& idea){
 std::string Brain::getIdea(int index) const {
 	if (index >= 0 && index < 100)
 		return this->_ideas[index];
-	std::cerr << "Invalid idea index: " << index << std::endl;
+	std::cout << "Invalid idea index: " << index << std::endl;
     return "";
 }
 

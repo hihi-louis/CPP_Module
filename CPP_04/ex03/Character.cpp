@@ -6,25 +6,28 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 02:52:16 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/09 03:51:58 by tripham          ###   ########.fr       */
+/*   Updated: 2025/09/01 16:12:53 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character() {
+Character::Character(): _name("default"), _floorIndex(0) {
 	std::cout << "Character: Default constructor called" << std::endl;
+	for (int i = 0; i < 4; i++) this->_inventory[i] = nullptr;
+    for (int i = 0; i < 100; i++) this->_floor[i] = nullptr;
+
 }
 
 Character::~Character() {
-	std::cout << "Character: Default destructor called" << std::endl;
+	std::cout << "Character: Destructor called" << std::endl;
 	for (int i = 0; i < 4; ++i)
 		if (_inventory[i])
-			delete _inventory[i];
+			delete this->_inventory[i];
 
 	for (int i = 0; i < _floorIndex; ++i)
 		if (_floor[i])
-			delete _floor[i];
+			delete this->_floor[i];
 }
 
 Character::Character(std::string name): _name(name), _floorIndex(0)
@@ -82,10 +85,17 @@ std::string const & Character::getName() const{
 void Character::equip(AMateria* m){
 	if (!m)
 		return;
+	for (int i = 0; i < 4; i++) {
+        if (this->_inventory[i] == m) {
+            std::cout << "Character: " << getName()
+                      << " already equipped this materia" << std::endl;
+            return;
+        }
+    }
 	std::cout << "Character: " << getName() << " equip " << m->getType() << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
-		if (!this->_inventory[i] && this->_inventory[i] != m)
+		if (!this->_inventory[i])
 		{
 			this->_inventory[i] = m;
 			return;
@@ -101,6 +111,8 @@ void Character::unequip(int idx){
 	
 	if (this->_floorIndex < 100)
 		this->_floor[this->_floorIndex++] = this->_inventory[idx];
+	else
+		 std::cout << "Floor full, materia lost!" << std::endl;
 	this->_inventory[idx] = nullptr;
 }
 

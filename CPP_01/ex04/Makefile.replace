@@ -5,37 +5,37 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/08 00:29:01 by tripham           #+#    #+#              #
-#    Updated: 2025/09/01 15:54:51 by tripham          ###   ########.fr        #
+#    Created: 2025/06/27 02:05:16 by tripham           #+#    #+#              #
+#    Updated: 2025/07/12 13:50:36 by tripham          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-NAME	:=	Meteria
+haha
+NAME	:=	Replace
 CC		:=	c++
-FLAGS	:=	-Wall -Wextra -Werror -std=c++20 -g
-SRC		:=	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
+FLAGS	:=	-Wall -Wextra -Werror -std=c++20
+SRC		:=	main.cpp ex04.cpp
 OBJ		:= $(SRC:.cpp=.o)
-
+haha
 GREEN	:= \033[0;32m
 BLUE	:= \033[0;34m
 RESET	:= \033[0m
-
+haha
 all : $(NAME)
-
+haha
 %.o : %.cpp
 		@$(CC) $(FLAGS) -c $< -o $@
-
+haha
 $(NAME) : $(OBJ)
 		@echo "$(GREEN)Success$(RESET)"
 		@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-
+haha
 clean: 
 	@rm -rf $(OBJ)
-
+haha
 fclean: clean
 		@echo "$(BLUE)Cleanning Success$(RESET)"
 		@rm -rf $(NAME)
 		
 re: fclean all
-
+haha
 .PHONY: all clean fclean re

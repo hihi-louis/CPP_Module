@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 14:39:26 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/11 02:43:12 by tripham          ###   ########.fr       */
+/*   Updated: 2025/09/02 20:10:12 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Bureaucrat; // Forward Declaration to let compiler to know this class is g
 
 class Form{
 	public:
+		Form() = delete;
 		Form(const std::string name, int gradeToSign, int gradeToExecute);
 		~Form();
 		Form(const Form& other);
@@ -32,16 +33,12 @@ class Form{
 		
 		class GradeTooHighException : public std::exception{
 			public:
-				const char* what() const throw() {
-					return "Form: Grade too high!";
-				}
+				const char* what() const noexcept override; 
 		};
 		
 		class GradeTooLowException : public std::exception {
 			public:
-			const char* what() const throw() {
-				return "Form: Grade too low!";
-			}
+			const char* what() const noexcept override; 
 		};		
 	private:
 		const std::string 	_name;

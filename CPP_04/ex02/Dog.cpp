@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:12:34 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 17:04:30 by tripham          ###   ########.fr       */
+/*   Updated: 2025/09/01 15:50:32 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Dog::Dog(): Animal("Dog"){
 	try{
 		this->_brain = new Brain();
 	} catch(const std::bad_alloc& err) {
-		std::cerr << "Failed to allocate Brain: " << err.what() << std::endl;
+		std::cout << "Failed to allocate Brain: " << err.what() << std::endl;
 		throw;
 	}
 }
@@ -32,24 +32,33 @@ Dog::Dog(std::string type): Animal(type){
 	try{
 		this->_brain = new Brain();
 	} catch(const std::bad_alloc& err) {
-		std::cerr << "Failed to allocate Brain: " << err.what() << std::endl;
+		std::cout << "Failed to allocate Brain: " << err.what() << std::endl;
 		throw;
 	}
 }
 
 Dog::Dog(const Dog& other): Animal(other)
 {
-	this->_brain = new Brain(*other._brain); // deep copy
 	LOG("Dog: Copy constructor called");
+	*this = other;
 }
+
 Dog& Dog::operator=(const Dog& other)
 {
 	LOG("Dog: Copy assignment called");
 	if (this != &other)
 	{
 		Animal::operator=(other);
-		delete this->_brain; // remove the old brain
-		this->_brain = new Brain(*other._brain); // Deep copy the new brain
+		Brain* newBrain = nullptr;
+		try {
+			newBrain = new Brain(*other._brain);
+        } catch (const std::bad_alloc& e) {
+			std::cerr << "Failed to copy Brain: " << e.what() << std::endl;
+            throw;
+        }
+		if (this->_brain)
+			delete this->_brain;
+        this->_brain = newBrain;
 	}
 	return *this;
 }

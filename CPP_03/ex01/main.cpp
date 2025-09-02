@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 13:28:08 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/09 04:39:40 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/12 13:36:37 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main()
 		delete ptr;
 	} catch (const std::bad_alloc& e)
 	{
-		std::cerr << "Allocation failed: " << e.what() << std::endl;
+		std::cout << "Allocation failed: " << e.what() << std::endl;
 	} 
 	
 	return 0;

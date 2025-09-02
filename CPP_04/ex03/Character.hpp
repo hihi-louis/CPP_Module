@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 23:33:17 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/09 03:33:39 by tripham          ###   ########.fr       */
+/*   Updated: 2025/09/01 15:54:13 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Character: public ICharacter{
 		Character(const Character& other);
 		Character& operator=(const Character& other);
 		 
-		std::string const & getName() const;
+		std::string const & getName() const override;
 		void equip(AMateria* m) override;
 		void unequip(int idx) override;
 		void use(int idx, ICharacter& target) override;

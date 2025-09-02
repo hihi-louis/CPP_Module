@@ -6,13 +6,13 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 19:40:08 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/04 18:06:15 by tripham          ###   ########.fr       */
+/*   Updated: 2025/08/03 18:44:46 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() {LOG("Default constructor called");}
+Fixed::Fixed(): _value(0) {LOG("Default constructor called");}
 
 Fixed::Fixed(const int number): _value(number << _fractionalBits){
 	LOG("Int constructor called");

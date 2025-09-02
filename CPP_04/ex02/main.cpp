@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 00:32:00 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 17:37:24 by tripham          ###   ########.fr       */
+/*   Updated: 2025/09/01 15:47:29 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,40 +25,40 @@ static void clean(T* ptr)
 
 int main()
 {
-	// const int size = 10;
-	// Animal* animals[size];
+	const int size = 10;
+	Animal* animals[size];
 
-	// for (int i = 0; i < size; i++)
-	// {
-	// 	if (i < size / 2)
-	// 		animals[i] = new Dog();
-	// 	else
-	// 		animals[i] = new Cat();
-	// }
-	// std::cout << std::endl;
+	for (int i = 0; i < size; i++)
+	{
+		if (i < size / 2)
+			animals[i] = new Dog();
+		else
+			animals[i] = new Cat();
+	}
+	std::cout << std::endl;
 
-	// for (int i = 0; i < size; i++)
-	// 	animals[i]->makeSound();
+	for (int i = 0; i < size; i++)
+		animals[i]->makeSound();
 
-	// std::cout << "\n=== Deep Copy Test ===\n" << std::endl;
+	std::cout << "\n=== Deep Copy Test ===\n" << std::endl;
 
-	// Dog originalDog;
-	// originalDog.getBrain()->setIdea(0, "I need to bite someone");
-	// originalDog.getBrain()->setIdea(1, "I am a supper dog");
+	Dog originalDog;
+	originalDog.getBrain()->setIdea(0, "I need to bite someone");
+	originalDog.getBrain()->setIdea(1, "I am a supper dog");
 
-	// Dog copiedDog(originalDog);
+	Dog copiedDog(originalDog);
 
-	// std::cout << "Original Dog Idea 0: " << originalDog.getBrain()->getIdea(0) << std::endl;
-	// std::cout << "CopiedDog Idea :" << copiedDog.getBrain()->getIdea(0) << std::endl;
+	std::cout << "Original Dog Idea 0: " << originalDog.getBrain()->getIdea(0) << std::endl;
+	std::cout << "CopiedDog Idea :" << copiedDog.getBrain()->getIdea(0) << std::endl;
 
-	// copiedDog.getBrain()->setIdea(0, "I want to sleep");
+	copiedDog.getBrain()->setIdea(0, "I want to sleep");
 
-	// std::cout << "After modifying copy:\n";
-    // std::cout << "Original Dog Idea 0: " << originalDog.getBrain()->getIdea(0) << std::endl;
-    // std::cout << "Copied Dog Idea 0  : " << copiedDog.getBrain()->getIdea(0) << std::endl;
+	std::cout << "After modifying copy:\n";
+    std::cout << "Original Dog Idea 0: " << originalDog.getBrain()->getIdea(0) << std::endl;
+    std::cout << "Copied Dog Idea 0  : " << copiedDog.getBrain()->getIdea(0) << std::endl;
 
-	// for (int i = 0; i < size; i++)
-	// 	clean(animals[i]);
+	for (int i = 0; i < size; i++)
+		clean(animals[i]);
 
 	std::cout << "\n=== WRONG VERSION ===" << std::endl;
 

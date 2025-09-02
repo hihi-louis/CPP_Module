@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 03:56:25 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/09 04:22:09 by tripham          ###   ########.fr       */
+/*   Updated: 2025/09/01 16:17:16 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,12 @@ void MateriaSource::learnMateria(AMateria* m){
 		if (!this->_templates[i]){
 			this->_templates[i] = m->clone();
 			std::cout << "Learned materia of type [" << m->getType() << "] in slot " << i << std::endl;
+			delete m;
 			return ;
 		}
 	}
 	std::cout << "Inventory full, cannot learn [" << m->getType() << "]" << std::endl;
+	delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)

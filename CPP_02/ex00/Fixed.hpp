@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 16:19:03 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/03 19:41:04 by tripham          ###   ########.fr       */
+/*   Updated: 2025/08/03 18:10:25 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Fixed {
 		Fixed(const Fixed& number); // A copy constructor
 		Fixed& operator=(const Fixed& other);
 
-		int getRawBits( void ) const; // getter always goes with cosnt, cuz it just gets the value, does'n change the value
+		int getRawBits( void ) const; // getter always goes with const, cuz it just gets the value, does'n change the value
 		void setRawBits( int const raw );
 	private:
 		int					_number;

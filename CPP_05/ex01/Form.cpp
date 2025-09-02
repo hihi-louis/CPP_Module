@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 14:51:28 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/11 02:42:01 by tripham          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Form.hpp"
 
 
@@ -22,6 +10,14 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute):
 	}
 
 Form::~Form() {}
+
+const char* Form::GradeTooHighException::what() const noexcept {
+	return "Form: Grade too high!";
+}
+
+const char* Form::GradeTooLowException::what() const noexcept {
+	return "Form: Grade too low!";
+}
 
 Form::Form(const Form& other)
 	: _name(other._name),

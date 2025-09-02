@@ -6,14 +6,14 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:27:36 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 23:56:42 by tripham          ###   ########.fr       */
+/*   Updated: 2025/09/01 16:01:20 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
 AMateria::AMateria(std::string const& type): _type(type){
-	std::cout << "AMateria: Default constructor called with: " << this->_type << std::endl; 
+	std::cout << "AMateria: parameterized constructor called with: " << this->_type << std::endl; 
 }
 
 AMateria::~AMateria(){

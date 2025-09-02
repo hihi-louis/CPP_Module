@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 00:32:00 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 17:02:22 by tripham          ###   ########.fr       */
+/*   Updated: 2025/09/01 15:44:53 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int main()
 
 	copiedDog.getBrain()->setIdea(0, "I want to sleep");
 
-	std::cout << "After modifying copy:\n";
+	std::cout << "After modifying copy" << std::endl;
     std::cout << "Original Dog Idea 0: " << originalDog.getBrain()->getIdea(0) << std::endl;
     std::cout << "Copied Dog Idea 0  : " << copiedDog.getBrain()->getIdea(0) << std::endl;
 

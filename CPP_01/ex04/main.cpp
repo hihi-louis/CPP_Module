@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 01:54:50 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/12 13:36:37 by tripham          ###   ########.fr       */
+/*   Updated: 2025/07/25 15:19:42 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main (int ac, char **av)
 	int result = rep.process();
 	if (result)
 	{
-		if (result == -1 || result == -2)
+		if (result == -1)
 			return EXIT_FAILURE;
 		std::cout << "Error: Replacement failed." << std::endl;
 		return EXIT_FAILURE;

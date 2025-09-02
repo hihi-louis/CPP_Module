@@ -1,27 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 14:55:51 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/09 15:50:34 by tripham          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #pragma once
 
 #include <iostream>
 #include <new>
+#include <exception>
 
 class Bureaucrat{
 	public:
-		Bureaucrat();
+		Bureaucrat() = delete;
 		Bureaucrat(const std::string& name, int grade);
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat& other);
-		Bureaucrat& operator=(const Bureaucrat& other);
+		Bureaucrat& operator=(const Bureaucrat& other) = delete;
 		
 		const std::string&	getName(void) const;
 		int		getGrade(void) const;
@@ -32,16 +21,12 @@ class Bureaucrat{
 
 		class GradeTooHighException : public std::exception{
 			public:
-				const char* what() const throw() {
-					return "Bureaucrat: Grade too high!";
-				}
+				const char* what() const noexcept override;
 		};
 		
 		class GradeTooLowException : public std::exception {
 			public:
-			const char* what() const throw() {
-				return "Bureaucrat: Grade too low!";
-			}
+				const char* what() const noexcept override;
 		};
 		private:
 		const std::string _name;

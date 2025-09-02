@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 14:55:51 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/11 02:44:26 by tripham          ###   ########.fr       */
+/*   Updated: 2025/09/02 20:07:23 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@
 
 # define INFO(msg)		std::cout << CYAN << msg << RESET << std::endl
 # define SUCCESS(msg)	std::cout << GREEN << msg << RESET << std::endl
-# define ERROR_MSG(msg)	std::cerr << RED << msg << RESET << std::endl
-# define EXCEPTION(msg)	std::cerr << YELLOW << msg << RESET << std::endl
+# define ERROR_MSG(msg)	std::cout << RED << msg << RESET << std::endl
+# define EXCEPTION(msg)	std::cout << YELLOW << msg << RESET << std::endl
 
 class Form;
 class Bureaucrat{
 	public:
-		Bureaucrat();
+		Bureaucrat() = delete;
 		Bureaucrat(const std::string& name, int grade);
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat& other);
-		Bureaucrat& operator=(const Bureaucrat& other);
+		Bureaucrat& operator=(const Bureaucrat& other) = delete;
 		
 		const std::string&	getName(void) const;
 		int		getGrade(void) const;
@@ -48,16 +48,12 @@ class Bureaucrat{
 		void signForm(Form& form);
 		class GradeTooHighException : public std::exception{
 			public:
-				const char* what() const throw() {
-					return "Bureaucrat: Grade too high!";
-				}
+				const char* what() const noexcept override;
 		};
 		
 		class GradeTooLowException : public std::exception {
 			public:
-			const char* what() const throw() {
-				return "Bureaucrat: Grade too low!";
-			}
+			const char* what() const noexcept override;
 		};
 		private:
 		const std::string _name;

@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 03:29:27 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/08 15:52:00 by tripham          ###   ########.fr       */
+/*   Updated: 2025/09/01 15:43:52 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 Brain::Brain() {
 	LOG("Brain: Default constructor called");
+	for (int i = 0; i < 100; i++)
+    	this->_ideas[i] = "";
 }
 Brain::~Brain() {
 	LOG("Brain: Default destructor called");
@@ -37,12 +39,14 @@ Brain& Brain::operator=(const Brain &other) {
 void Brain::setIdea(int index, const std::string& idea){
 	if (index >= 0 && index < 100)
 		this->_ideas[index] = idea;
+	else
+        std::cout << "Invalid idea index: " << index << std::endl;
 }
 
 std::string Brain::getIdea(int index) const {
 	if (index >= 0 && index < 100)
 		return this->_ideas[index];
-	std::cerr << "Invalid idea index: " << index << std::endl;
+	std::cout << "Invalid idea index: " << index << std::endl;
     return "";
 }
 

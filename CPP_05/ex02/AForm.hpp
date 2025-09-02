@@ -1,20 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/11 03:20:31 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/11 18:13:06 by tripham          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #pragma once
 
-#include <iostream>
-#include <string>
-#include "Bureaucrat.hpp"
+#include <sys.hpp>
 
 class Bureaucrat;
 
@@ -33,15 +19,15 @@ class AForm{
 		virtual void		execute(Bureaucrat const & executor) const = 0; //pure virtual
 		
 		class GradeTooHighException : public std::exception{
-			const char* what() const throw() override;
+			const char* what() const noexcept override;
 		};
 		
 		class GradeTooLowException : public std::exception {
-			const char* what() const throw() override; 
+			const char* what() const noexcept override; 
 		};	
 
 		class NotSignedException : public std::exception {
-			const char* what() const throw() override;
+			const char* what() const noexcept override;
 		};
 		
 	protected:

@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 00:32:00 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/21 18:56:55 by tripham          ###   ########.fr       */
+/*   Updated: 2025/09/01 16:30:09 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,28 +19,54 @@
 template <typename T>
 static void clean(T* ptr)
 {
-	delete ptr;
+    delete ptr;
 }
-
 int main()
 {
-	Animal omenal = Animal();
-	
-	Animal *omenal1 = new Cat();
-	Dog bulldog;
-	Dog cogi(bulldog);
-	WrongAnimal *ahaha = new WrongCat();
-	throw std::runtime_error("test");
-	//try catch for new otherwise it's gonna be segfault
-	std::cout << cogi.getType() << "" << std::endl;
-	std::cout << ahaha->getType() << "" << std::endl;
-	
-	omenal1->makeSound();
-	bulldog.makeSound();
-	cogi.makeSound();
+    Animal* animal = nullptr;
+    Animal* dog = nullptr;
+    Animal* cat = nullptr;
+    WrongAnimal* wrong = nullptr;
 
-	ahaha->makeSound();
-	clean(omenal1);
-	clean(ahaha);
+    try {
+        std::cout << "---- Correct polymorphism ----" << std::endl;
+        animal = new Animal();
+        dog = new Dog();
+        cat = new Cat();
+
+        std::cout << dog->getType() << std::endl;
+        std::cout << cat->getType() << std::endl;
+        dog->makeSound(); 
+        cat->makeSound();
+        animal->makeSound();
+
+        std::cout << "\n---- Wrong polymorphism ----" << std::endl;
+        wrong = new WrongCat();
+        std::cout << wrong->getType() << std::endl;
+        wrong->makeSound();
+
+		//Test Exception
+        throw std::runtime_error("Manual test exception in main()");
+
+        //If dont throw it is gonna normally deleteded
+        // clean(animal);
+        // clean(dog);
+        // clean(cat);
+        // clean(wrong);
+    }
+    catch (std::exception& e) {
+        std::cerr << "Caught exception: " << e.what() << std::endl;
+
+        // Clean up when It throws exceptions
+        // clean(animal);
+        // clean(dog);
+        // clean(cat);
+        // clean(wrong);
+    }
+	clean(animal);
+    clean(dog);
+    clean(cat);
+    clean(wrong);
+
+    return 0;
 }
-

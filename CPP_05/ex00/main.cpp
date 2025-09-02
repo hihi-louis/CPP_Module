@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/09 16:34:32 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/10 14:37:54 by tripham          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Bureaucrat.hpp"
 
 int main()
@@ -17,12 +5,11 @@ int main()
 	try
 	{
 		Bureaucrat a("Harry Portter", 0);
-		std::cout << a;
-		std::cout << std::endl;
+		std::cout << a << std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	
 	try
@@ -32,21 +19,20 @@ int main()
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	
 	Bureaucrat b("Doraemon", 149);
 
 	try
 	{
-		std::cout << b;
-		std::cout << std::endl;
+		std::cout << b << std::endl;
 		b.decrementGrade();
 		b.decrementGrade();
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	return 0;
 }

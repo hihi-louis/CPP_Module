@@ -6,7 +6,7 @@
 /*   By: tripham <tripham@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 16:34:32 by tripham           #+#    #+#             */
-/*   Updated: 2025/07/11 02:55:40 by tripham          ###   ########.fr       */
+/*   Updated: 2025/08/29 19:59:23 by tripham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int main()
 	try
 	{
 		Bureaucrat a("Harry Portter", 0);
-		std::cout << a;
-		std::cout << std::endl;
+		std::cout << a << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -60,8 +59,7 @@ int main()
 		Bureaucrat c("Sailor Moon", 1);
 	try
 	{
-		std::cout << c;
-		std::cout << std::endl;
+		std::cout << c << std::endl;
 		c.incrementGrade();
 		c.incrementGrade();
 	}
