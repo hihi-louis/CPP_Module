@@ -1,7 +1,7 @@
 NAME	:=	SignForm
 CC		:=	c++
 FLAGS	:=	-Wall -Wextra -Werror -std=c++20
-SRC		:=	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp
+SRC		:=	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp Intern.cpp
 OBJ		:= $(SRC:.cpp=.o)
 
 GREEN	:= \033[0;32m

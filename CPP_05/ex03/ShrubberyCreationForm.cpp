@@ -1,6 +1,6 @@
 #include "sys.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
 	: AForm("ShrubberyCreationForm", 145, 137) ,_target(target){}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
@@ -27,7 +27,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 	std::string filename = _target + "_shrubbery";
 	std::ofstream outfile(filename);
 	if (!outfile)
-		throw std::runtime_error("Error: Could not open the file in Shrubbery class");
+		throw std::runtime_error("Error: Could not open the file in  Shrubbery class");
 	std::cout << "ShrubberyCreationForm: creating file " << filename << std::endl;
 	outfile << "        ###\n"
 			<< "       #o###\n"
