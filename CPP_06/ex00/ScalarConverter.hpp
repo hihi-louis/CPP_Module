@@ -4,7 +4,7 @@
 
 class ScalarConverter{
     public:
-        static void convert(std::string const &literal);
+        static void convert(std::string const &s);
 
         ScalarConverter() = delete;
         ~ScalarConverter() = delete;
