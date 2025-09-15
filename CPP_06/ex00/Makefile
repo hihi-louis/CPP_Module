@@ -21,8 +21,6 @@ clean:
 	@rm -rf $(OBJ)
 
 fclean: clean
-		@echo "Removing shrubbery files..."
-		@find . -name '*_shrubbery' -print -delete
 		@rm -rf $(NAME)
 		@echo "$(BLUE)Cleanning Success$(RESET)"
 
