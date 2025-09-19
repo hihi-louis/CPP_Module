@@ -1,7 +1,7 @@
-NAME	:=	Serializer
+NAME	:=	identify
 CC		:=	c++
 FLAGS	:=	-Wall -Wextra -Werror -std=c++20
-SRC		:=	main.cpp Serializer.cpp
+SRC		:=	main.cpp Base.cpp identify.cpp
 OBJ		:= $(SRC:.cpp=.o)
 
 GREEN	:= \033[0;32m

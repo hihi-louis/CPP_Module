@@ -39,9 +39,6 @@ static stringType detectType(const std::string &s)
 void ScalarConverter::convert(std::string const &s)
 {
 	stringType type = detectType(s);
-	// char cVal = 0;
-	// int iVal = 0;
-	// float fVal = 0.0f;
 	double dVal;
 
 	try
@@ -51,7 +48,7 @@ void ScalarConverter::convert(std::string const &s)
 		if (type == CHAR)
 			dVal = static_cast<double>(s[0]);
 		else if (type == INT)
-		{	dVal = static_cast<double>(std::stoi(s, &idx));
+		{	dVal = static_cast<double>(std::stod(s, &idx));
 			if (s.size() != idx)
 				throw std::invalid_argument("invalid input");
 		}
@@ -71,6 +68,7 @@ void ScalarConverter::convert(std::string const &s)
 		}
 		else
 		{
+
 			std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible\n";
             return;
 		}
@@ -82,7 +80,7 @@ void ScalarConverter::convert(std::string const &s)
 	}
 
 	// CHAR
-	if (std::isnan(dVal) || std::isinf(dVal) || dVal < std::numeric_limits<char>::min() || dVal > std::numeric_limits<char>::max())
+	if (std::isnan(dVal) || std::isinf(dVal) || dVal < 0 || dVal > 127)
 		std::cout << "char: impossible\n";
 	else if (std::isprint(static_cast<char>(dVal)))
 		std::cout << "char: '" << static_cast<char>(dVal) << "'\n";
@@ -92,21 +90,20 @@ void ScalarConverter::convert(std::string const &s)
 	if (std::isnan(dVal) || std::isinf(dVal) || dVal < std::numeric_limits<int>::min() || dVal > std::numeric_limits<int>::max())
 		std::cout << "int: impossible\n";
     else
-        std::cout << "int: " << static_cast<int>(dVal) << "\n";
-	// FLOAT
-// FLOAT
-	float fVal = static_cast<float>(dVal);
-	if (std::isnan(fVal))
-    	std::cout << "float: nanf\n";
-	else if (std::isinf(fVal))
-	{
-		if (std::signbit(fVal))
-			std::cout << "float: -inff\n";
-		else
-			std::cout << "float: +inff\n";
+    {
+	   std::cout << "int: " << static_cast<int>(dVal) << "\n";
 	}
-	else 
-		std::cout << std::fixed << std::setprecision(1)<< "float: " << fVal << "f\n";
+	// FLOAT
+	float fVal = static_cast<float>(dVal);
+	if (std::isnan(dVal))
+    	std::cout << "float: nanf\n";
+	else if (std::isinf(dVal))
+		std::cout << (std::signbit(dVal) ? "float: -inff\n" : "float: +inff\n");
+	else if (dVal > std::numeric_limits<float>::max() ||
+			dVal < -std::numeric_limits<float>::max())
+		std::cout << "float: impossible\n";
+	else
+		std::cout << std::fixed << std::setprecision(1) << "float: " << fVal << "f\n";
 
 	// DOUBLE
 	if (std::isnan(dVal))
