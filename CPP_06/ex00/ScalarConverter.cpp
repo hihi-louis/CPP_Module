@@ -55,8 +55,6 @@ void ScalarConverter::convert(std::string const &s)
 		else if (type == FLOAT)
 		{
 			dVal = static_cast<double>(std::stof(s, &idx));
-			// if (s.size() != idx && s != "nan" && s != "nanf")
-			// 	throw std::invalid_argument("invalid input");
 			if (!(idx == s.size() || (idx == s.size() - 1 && s.back() == 'f')))
         		throw std::invalid_argument("invalid input");
 		}
@@ -80,7 +78,7 @@ void ScalarConverter::convert(std::string const &s)
 	}
 
 	// CHAR
-	if (std::isnan(dVal) || std::isinf(dVal) || dVal < 0 || dVal > 127)
+	if (std::isnan(dVal) || std::isinf(dVal) || dVal < 0 || dVal > 255)
 		std::cout << "char: impossible\n";
 	else if (std::isprint(static_cast<char>(dVal)))
 		std::cout << "char: '" << static_cast<char>(dVal) << "'\n";
