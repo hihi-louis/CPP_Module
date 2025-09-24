@@ -2,6 +2,7 @@
 
 Base* generate(void)
 {
+	// throw std::runtime_error("fake_bad_alloc");
 	switch (std::rand() % 3)
 	{
 	case 0:

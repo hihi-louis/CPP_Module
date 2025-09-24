@@ -7,11 +7,17 @@ int main()
 	for (int i = 0; i < 7; i++)
 	{
 		std::cout << "Test: " << i + 1 << "\n";
-		Base* test = generate();
-		std::cout << "Identify ptr: ";
-		identify(test);
-		std::cout << "Identify ref: ";
-		identify(*test);
+		Base *test = nullptr;
+		try {
+			test = generate();
+			std::cout << "Identify ptr: ";
+			identify(test);
+			std::cout << "Identify ref: ";
+			identify(*test);
+		} catch (const std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+
 		delete test;
 		test = nullptr;
 		std::cout << std::endl;

@@ -3,5 +3,6 @@
 
 struct Data{
 	int		id;
-	std::string name;	
+	// std::string name;	
+	const char * name = nullptr;
 };
