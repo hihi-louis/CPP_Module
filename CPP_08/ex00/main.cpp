@@ -31,6 +31,10 @@ int main()
 		std::cout << e.what() << std::endl;
 	}
 }
+{
+	auto listVec = {1, 6, 5, 22, 333, 4654};
+	
+}
 
 // {
 // 	std::vector<std::string> stringVec = {"hello", "omggg", "louis", "cute"};
