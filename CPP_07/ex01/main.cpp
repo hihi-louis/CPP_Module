@@ -42,8 +42,8 @@ int main() {
     {
         std::cout << "== int test ==\n";
         int a[5] = {1,2,3,4,5};
-        iter(a, std::size(a), inc);     // thay đổi giá trị
-        iter(a, std::size(a), Print()); // in ra
+        iter(a, std::size(a), inc);    
+        iter(a, std::size(a), Print());
     }
 
     {
