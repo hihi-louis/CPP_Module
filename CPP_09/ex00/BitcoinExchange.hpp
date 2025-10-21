@@ -6,9 +6,21 @@
 #include <stdexcept>
 #include <string_view>
 #include <string>
-
+#include <fstream>
+#include <sstream>
+#include <iostream>
 class BitcoinExchange
 {
+	
+	public:
+	BitcoinExchange() = default;
+	~BitcoinExchange() = default;
+	BitcoinExchange(const BitcoinExchange& other) = default;
+	BitcoinExchange& operator=(const BitcoinExchange& other) = default;
+	
+	void			processInputFile(std::string_view inputFilePath) const;
+	explicit		BitcoinExchange(std::string_view dataBasePath);
+
 	private:
 		std::map<std::string, double> _dataBase;
 		
@@ -17,13 +29,4 @@ class BitcoinExchange
 
 		static void		_validateDate(std::string_view dataStr);
 		static double	_validateValue(std::string_view valueStr);
-
-	public:
-		BitcoinExchange() = default;
-		~BitcoinExchange() = default;
-		BitcoinExchange(const BitcoinExchange& other) = default;
-		BitcoinExchange& operator=(const BitcoinExchange& other) = default;
-
-		void			processInputFile(std::string_view inputFilePath) const;
-		explicit		BitcoinExchange(std::string_view dataBasePath);
 };
