@@ -88,3 +88,29 @@ void BitcoinExchange::_validateDate(std::string_view dateStr){
 	if (!dateToCheck.ok())
 		throw ("Invalid date logic: " + std::string(dateStr));
 }
+
+double BitcoinExchange::_validateValue(std::string_view valueStr){
+	double value;
+	try
+	{
+		size_t pos;
+		value = std::stod(std::string(valueStr), &pos);
+		if (pos != valueStr.length())
+			throw ("Invalid price format: " + std::string(valueStr));
+	}
+	catch(const std::invalid_argument& e)
+	{
+		std::cout << e.what() << '\n';
+	}
+	catch(const std::out_of_range &e){
+		std::cout << e.what() << '\n';
+	}
+	
+	if (value < 0)
+		throw ("Price cannot be negative number: " + std::string(valueStr));
+
+	if (value > 1000)
+		throw ("Price is too large: " + std::string(valueStr));
+	return value;
+}
+
