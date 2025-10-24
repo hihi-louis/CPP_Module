@@ -9,6 +9,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <chrono>
 class BitcoinExchange
 {
 	
@@ -27,6 +28,6 @@ class BitcoinExchange
 		void			_loadDataBase(std::string_view dataBasePath);
 		void			_findAndPrint(std::string_view date, double value) const;
 
-		static void		_validateDate(std::string_view dataStr);
+		static void		_validateDate(std::string_view dateStr);
 		static double	_validateValue(std::string_view valueStr);
 };
