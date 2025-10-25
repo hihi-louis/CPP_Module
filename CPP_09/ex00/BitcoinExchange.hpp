@@ -10,6 +10,7 @@
 #include <sstream>
 #include <iostream>
 #include <chrono>
+#include "sys.hpp"
 class BitcoinExchange
 {
 	

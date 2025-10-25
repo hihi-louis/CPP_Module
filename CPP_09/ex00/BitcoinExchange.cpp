@@ -32,9 +32,9 @@ void BitcoinExchange::_loadDataBase(std::string_view dataBasePath)
 				}
 				this->_dataBase[dateString] = price;
 			}catch (const std::invalid_argument& e){
-				std::cout << "Warning: Invalid Price format in database: " << priceStr << std::endl;
+				std::cout << YELLOW << "Warning: Invalid Price format in database: " << priceStr << std::endl;
 			}catch (const std::out_of_range& e){
-				std::cout << "Warning: Price out of range in database: " << priceStr << std::endl;
+				std::cout << YELLOW << "Warning: Price out of range in database: " << priceStr << std::endl;
 			}
 		}
 	}	
@@ -53,12 +53,21 @@ void BitcoinExchange::processInputFile(std::string_view inputFilePath) const
 	{
 		try
 		{
-			const std::string deli = "|";
-			size_t pos = line.find('|');
-			if (pos == std::string::npos)
-				throw ("Bad input file: " + line);
-			std::string_view dateStr = std::string_view(line).substr(0, pos);
-			std::string_view priceStr = std::string_view(line).substr(pos + deli.length());
+			std::stringstream ss(line);
+			std::string dateStr;
+            std::string priceStr;
+			char deli;
+			if (line.empty())
+				throw std::runtime_error("Error: Bad input because of new line");
+
+			if (!(ss >> dateStr >> deli >> priceStr) || deli != '|') {
+                throw std::runtime_error("Error: Bad input => " + line);
+            }
+
+			std::string junk;
+            if (ss >> junk) {
+                throw std::runtime_error("Error: Bad input => " + line);
+            }
 
 			_validateDate(dateStr);
 			double value = _validateValue(priceStr);
@@ -67,26 +76,28 @@ void BitcoinExchange::processInputFile(std::string_view inputFilePath) const
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << e.what() << '\n';
+			std::cout << RED << e.what() << '\n' << RESET;
 		}
 	}
 }
 
 void BitcoinExchange::_validateDate(std::string_view dateStr){
 	std::stringstream ss(dateStr.data());
-	char deli;
+	char deli1, deli2;
 	int y_val, d_val, m_val;
-
-	if (!(ss >> y_val >> deli >> m_val >> deli >> d_val) || deli != '-'){
-		throw ("Wrong date format: " + std::string(dateStr));
+	if (!(ss >> y_val >> deli1 >> m_val >> deli2 >> d_val) || deli1 != '-' || deli2 != '-'){
+		throw std::runtime_error("Error: Wrong date format => " + std::string(dateStr));
 	}
-
+	std::string junk;
+    if (ss >> junk) {
+        throw std::runtime_error("Error: Bad date format (trailing chars) => " + std::string(dateStr));
+    }
 	std::chrono::year y = std::chrono::year{y_val};
-	auto m = std::chrono::month{m_val};
-	auto d = std::chrono::day(d_val);
+	auto m = std::chrono::month{static_cast<unsigned int>(m_val)};
+	auto d = std::chrono::day{static_cast<unsigned int>(d_val)};
 	std::chrono::year_month_day dateToCheck(y, m, d);
 	if (!dateToCheck.ok())
-		throw ("Invalid date logic: " + std::string(dateStr));
+		throw std::runtime_error("Error: Invalid date logic => " + std::string(dateStr));
 }
 
 double BitcoinExchange::_validateValue(std::string_view valueStr){
@@ -96,21 +107,29 @@ double BitcoinExchange::_validateValue(std::string_view valueStr){
 		size_t pos;
 		value = std::stod(std::string(valueStr), &pos);
 		if (pos != valueStr.length())
-			throw ("Invalid price format: " + std::string(valueStr));
+			throw std::runtime_error("Error: Invalid price format => " + std::string(valueStr));
 	}
-	catch(const std::invalid_argument& e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << '\n';
+		throw;
 	}
-	catch(const std::out_of_range &e){
-		std::cout << e.what() << '\n';
-	}
-	
 	if (value < 0)
-		throw ("Price cannot be negative number: " + std::string(valueStr));
+		throw std::runtime_error("Error: Negative number: " + std::string(valueStr));
 
 	if (value > 1000)
-		throw ("Price is too large: " + std::string(valueStr));
+		throw std::runtime_error("Error: Too large a number");
 	return value;
 }
 
+void BitcoinExchange::_findAndPrint(std::string_view date, double value) const{
+	//auto <=> std::map<std::string, double>::const_iteration/iteration
+	auto it = _dataBase.upper_bound(std::string(date));
+	if (it == _dataBase.begin())
+		throw std::runtime_error("Warning: No data available for or before date => " + std::string(date));
+	it--;
+	double exchangeRate = it->second;
+	double result = exchangeRate * value;
+
+	std::cout << GREEN << date << " => " << value << " = " << result << RESET << std::endl;
+	// std::cout << date << " => " << value << " = " << result << std::endl;
+}
