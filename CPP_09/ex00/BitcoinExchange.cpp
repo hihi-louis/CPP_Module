@@ -116,8 +116,21 @@ double BitcoinExchange::_validateValue(std::string_view valueStr){
 	if (value < 0)
 		throw std::runtime_error("Error: Negative number: " + std::string(valueStr));
 
-	if (value > 1000)
+	if (value > 1000) 
 		throw std::runtime_error("Error: Too large a number");
+
+	if (value == 1000)
+	{
+		size_t decimalPos = valueStr.find('.');
+		if (decimalPos != std::string_view::npos)
+		{
+			std::string_view fractionalPart = valueStr.substr(decimalPos + 1);
+			if (fractionalPart.find_first_not_of('0') != std::string_view::npos)
+			{
+				throw std::runtime_error("Error: Too large a number");
+			}
+		}
+	}
 	return value;
 }
 
