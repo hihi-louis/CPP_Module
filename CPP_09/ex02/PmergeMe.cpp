@@ -56,6 +56,44 @@ void PmergeMe::sort(Container& c){
 	}
 
 	// std::cout << S << std::endl;
+	//0, 1, 1, 3, 5, 11,… (sequence A001045 in the OEIS)
 	//J(n) = J(n-1) + 2*J(n-2)
+	std::vector<size_t> jacobsIndices;
+	size_t currentJacob = 3;
+	size_t lastJacob = 1;
+	while (lastJacob < P.size())
+	{
+		if (currentJacob - 1 < P.size()) {
+			jacobsIndices.push_back(currentJacob -1);
+		}
 
+		for (size_t i = currentJacob - 2; i > lastJacob; i--)
+		{
+			if (i < P.size())
+				jacobsIndices.push_back(i);
+		}
+
+		size_t temp = currentJacob;
+		currentJacob = currentJacob + 2* lastJacob;
+		lastJacob = temp; 
+	}
+
+	for (size_t p_index : jacobsIndices)
+	{
+		int valToInsert = P[p_index];
+		int partnerS = sortedPairs[p_index.second];
+		auto endSearchIt = std::lower_bound(S.begin(), S.end(), partnerS);
+
+		auto insertPos = std::lower_bound(S.begin(), endSearchIt, valToInsert);
+
+		S.insert(insertPos, valToInsert);
+	}
+
+	if (hasStraggler)
+	{
+		auto insertPos = std::lower_bound(S.begin(), S.end(), straggler);
+		S.insert(insertPos, straggler);
+	}
+
+	c = S;
 }

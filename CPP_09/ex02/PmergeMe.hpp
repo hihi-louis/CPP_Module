@@ -7,6 +7,7 @@
 #include <string>
 #include <iterator>
 #include <utility>
+#include <exception>
 
 class PmergeMe{
 	public:
