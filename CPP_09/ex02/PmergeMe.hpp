@@ -10,7 +10,7 @@
 
 class PmergeMe{
 	public:
-		~PmergeMe() = delete;
+		PmergeMe() = delete;
 		PmergeMe(const PmergeMe& other) = delete;
 		PmergeMe& operator=(const PmergeMe& other) = delete;
 		~PmergeMe() = default;
