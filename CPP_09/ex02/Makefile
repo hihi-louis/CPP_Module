@@ -1,7 +1,7 @@
 NAME	:=	PmergeMe
 CC		:=	c++
-FLAGS	:=	-Wall -Wextra -Werror -std=c++20
-SRC		:=	main.cpp #PmergeMe.cpp
+FLAGS	:=	-Wall -Wextra -Werror -std=c++20 -O3
+SRC		:=	main.cpp PmergeMe.cpp 
 OBJ		:= $(SRC:.cpp=.o)
 
 GREEN	:= \033[0;32m
