@@ -18,7 +18,10 @@ class PmergeMe{
 		PmergeMe() = delete;
 		PmergeMe(const PmergeMe& other) = delete;
 		PmergeMe& operator=(const PmergeMe& other) = delete;
-		~PmergeMe();
+		~PmergeMe() = default;
+
+		static void printVector(std::vector<int> &c);
+		static void printDeque(std::deque<int> &c);
 
 		template <typename Container>
 		static void sort(Container& c);

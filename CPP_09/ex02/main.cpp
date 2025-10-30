@@ -1,14 +1,14 @@
 #include "PmergeMe.hpp"
 
-template <typename cota>
-void printCota(const cota& c) {
-    for (size_t i = 0; i < c.size(); i++) {
-			std::cout << c[i];
-		if (i < c.size() - 1)
-			std::cout << " ";
-    }
-    std::cout << std::endl;
-}
+// template <typename cota>
+// void printCota(const cota& c) {
+//     for (size_t i = 0; i < c.size(); i++) {
+// 			std::cout << c[i];
+// 		if (i < c.size() - 1)
+// 			std::cout << " ";
+//     }
+//     std::cout << std::endl;
+// }
 
 int main(int argc, char **argv) {
     if (argc < 2) {
@@ -30,8 +30,10 @@ int main(int argc, char **argv) {
 
 		std::vector<int> vectorToSort = initial_sequence;
 		std::deque<int> deqToSort(initial_sequence.begin(), initial_sequence.end());
+
         std::cout << "Before: ";
-		printCota(initial_sequence);
+		PmergeMe::printVector(initial_sequence);
+
 		auto startList = std::chrono::high_resolution_clock::now();
 		PmergeMe::sort(vectorToSort);
 		auto endList = std::chrono::high_resolution_clock::now();
@@ -43,10 +45,10 @@ int main(int argc, char **argv) {
 		std::chrono::duration<double, std::milli> timeDeq = endDeq - startDeq;
 
 		std::cout << "After: ";
-		printCota(vectorToSort);
+		PmergeMe::printVector(vectorToSort);
 
-		std::cout << "Time to process a range of " << initial_sequence.size() <<  " elements with std::vector :" << timeList.count() << " us" << std::endl;
-		std::cout << "Time to process a range of " << initial_sequence.size() <<  " elements with std::deque :" << timeDeq.count() << " us" << std::endl;
+		std::cout << CYAN << "Time to process a range of " << initial_sequence.size() <<  " elements with std::vector: " << timeList.count() << " us" << RESET << std::endl;
+		std::cout << BLUE <<"Time to process a range of " << initial_sequence.size() <<  " elements with std::deque: " << timeDeq.count() << " us" << RESET << std::endl;
 
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
